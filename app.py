@@ -28,7 +28,7 @@ def home():
 @app.route("/api/v1.0/precipitation")
 def precipitation():
     session = Session(engine)
-    result = session.query(Measurement).all()
+    result = session.query(Measurement.date,Measurement.prcp).all()
     session.close()
 
     prcp_list = []
@@ -45,7 +45,7 @@ def precipitation():
 @app.route("/api/v1.0/stations")
 def stations(): 
     session = Session(engine)
-    st_result = session.query(Station).all()
+    st_result = session.query(Station.station,Station.name).all()
     session.close()
 
     stations_list = []
