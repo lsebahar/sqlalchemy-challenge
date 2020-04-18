@@ -55,7 +55,7 @@ def stations():
         st_dict["station"] = st
         stations_list.append(st)
 
-    return jsonify(stations)
+    return jsonify(stations_list)
 
 @app.route("/api/v1.0/tobs")
 def temperature():
@@ -69,6 +69,8 @@ def temperature():
         temp_dict = {}
         temp_dict["Temperature"] = temp
         temp_list.append(temp)
+
+        return jsonify(temp_list)
 
 
 
